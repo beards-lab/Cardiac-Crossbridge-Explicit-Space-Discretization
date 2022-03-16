@@ -22,32 +22,32 @@ Pu = 1 - p1_0 - p2_0 - p3_0; % unattached permissive fraction
 % definition of parameters
 alpha1 = 15.14;
 alpha2 = 10.06;
-alpha3 = 283.11;
+alpha3 = 276.67;
 s3 = 0.0099383;
 K_Pi = 4.007;
-K_T = 0.40; % (mM) 
+K_T = 0.50; % (mM) 
 K_D = 0.194; % MgADP dissociation constant from Yamashita etal (Circ Res. 1994; 74:1027-33).
 g1 = (MgADP/K_D)/(1 + MgADP/K_D + MgATP/K_T);
 g2 = (MgATP/K_T)/(1 + MgATP/K_T + MgADP/K_D);
 f1 = (Pi/K_Pi)/(1 + Pi/K_Pi); f2 = 1/(1 + Pi/K_Pi); 
-ka  = 330;
-kd  = f1*91.02;
-k1  = f2*45.491;%
-k_1 = 19.395;%
-k2  = 443.49;
-k_2 = g1*2.9504;
-k3  = g2*59.123;%;
+ka  = 373.23;
+kd  = f1*102.94;
+k1  = f2*40.116;%
+k_1 = 17.103;%
+k2  = 419.39;
+k_2 = g1*2.7901;
+k3  = g2*44.255;%;
 
 % Force model
 dr = 0.01; % Power-stroke Size; Units: um
-kstiff1 = 1067.8; 
-kstiff2 = 15196; 
+kstiff1 = 1393.2; 
+kstiff2 = 13275; 
 F_active = kstiff2*p3_0*dr + kstiff1*( p2_1 + p3_1);
 % F_total = F_active + 2;
 
 % transitions between super relaxed state and non relaxed state
-ksr    = 8.1352; % 
-sigma0 = 30.608;
+ksr    = 9.0853; % 
+sigma0 = 33.125;
 kmsr   = 250; % 
 
 dU_NR = + ksr*(exp(F_active/sigma0))*U_SR - kmsr*U_NR*Pu  ; 
